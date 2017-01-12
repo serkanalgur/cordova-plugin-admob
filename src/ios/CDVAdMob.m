@@ -90,6 +90,7 @@
 
 
 
+
 #pragma mark Cordova JS bridge
 
 
@@ -230,7 +231,7 @@ NSUInteger argc = [args count];
 
         [self __setOptions:options];
 
-        autoShowBanner = autoShow;
+        autoShowBanner = autoShowBanner;
 
     }
 
