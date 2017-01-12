@@ -33,6 +33,7 @@ namespace Cordova.Extension.Commands
 		private const string OPT_AD_SIZE = "adSize";
 		private const string OPT_IS_TESTING = "isTesting";
 		private const string OPT_AUTO_SHOW = "autoShow";
+		private const string OPT_AUTO_SHOW_BANNER = "autoShowBanner";
 		private const string OPT_BIRTHDAY = "birthday";
 		private const string OPT_GENDER = "gender";
 		private const string OPT_LOCATION = "location";
@@ -72,6 +73,7 @@ namespace Cordova.Extension.Commands
 		private Boolean optOverlap = false;
 		private Boolean optIsTesting = false;
 		private Boolean optAutoShow = true;
+		private Boolean optAutoShowBanner = true;
 		private string optBirthday = "";
 		private string optGender = "";
 		private Boolean optLocation = false;
@@ -147,6 +149,11 @@ namespace Cordova.Extension.Commands
 					{
 						optAutoShow = Convert.ToBoolean(parameters[OPT_AUTO_SHOW]);
 					}
+
+					if (parameters.ContainsKey(OPT_AUTO_SHOW_BANNER))
+					{
+						optAutoShowBanner = Convert.ToBoolean(parameters[OPT_AUTO_SHOW_BANNER]);
+					}
 					
 					if (parameters.ContainsKey(OPT_BIRTHDAY))
 					{
@@ -208,7 +215,7 @@ namespace Cordova.Extension.Commands
 			string adSize = optAdSize;
 			Boolean bannerAtTop = optBannerAtTop;
 			Boolean overlap = optOverlap;
-			Boolean autoShow = optAutoShow;
+			Boolean autoShow = optAutoShowBanner;
 			
 			Dictionary<string, string> parameters = null;
 			
@@ -244,9 +251,9 @@ namespace Cordova.Extension.Commands
 						overlap = Convert.ToBoolean(parameters[OPT_OVERLAP]);
 					}
 					
-					if (parameters.ContainsKey(OPT_AUTO_SHOW))
+					if (parameters.ContainsKey(OPT_AUTO_SHOW_BANNER))
 					{
-						autoShow = Convert.ToBoolean(parameters[OPT_AUTO_SHOW]);
+						autoShow = Convert.ToBoolean(parameters[OPT_AUTO_SHOW_BANNER]);
 					}
 				}
 			}
