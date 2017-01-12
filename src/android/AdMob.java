@@ -65,6 +65,7 @@ public class AdMob extends CordovaPlugin {
     private static final String OPT_IS_TESTING = "isTesting";
     private static final String OPT_AD_EXTRAS = "adExtras";
     private static final String OPT_AUTO_SHOW = "autoShow";
+    private static final String OPT_AUTO_SHOW_BANNER = "autoShowBanner";
 
     private ViewGroup parentView;
 
@@ -188,6 +189,7 @@ public class AdMob extends CordovaPlugin {
         if(options.has(OPT_IS_TESTING)) this.isTesting  = options.optBoolean( OPT_IS_TESTING );
         if(options.has(OPT_AD_EXTRAS)) this.adExtras  = options.optJSONObject( OPT_AD_EXTRAS );
         if(options.has(OPT_AUTO_SHOW)) this.autoShow  = options.optBoolean( OPT_AUTO_SHOW );
+        if(options.has(OPT_AUTO_SHOW_BANNER)) this.autoShowBanner  = options.optBoolean( OPT_AUTO_SHOW_BANNER );
     }
 
     /**
@@ -204,7 +206,7 @@ public class AdMob extends CordovaPlugin {
     private PluginResult executeCreateBannerView(JSONObject options, CallbackContext callbackContext) {
         final CallbackContext delayCallback = callbackContext;
         this.setOptions( options );
-        autoShowBanner = autoShow;
+        autoShowBanner = autoShowBanner;
 
         if(publisherId==null || publisherId.equals(EMPTY) || publisherId.indexOf("xxxx") > 0){
             Log.e("banner", "Please put your admob id into the javascript code. No ad to display.");
